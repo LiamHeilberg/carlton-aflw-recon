@@ -1,1 +1,1 @@
-{"name":"carlton-aflw-recon","version":"5.0.0","private":true,"scripts":{"dev":"next dev","build":"next build","start":"next start"},"dependencies":{"next":"^14.2.0","react":"^18.3.0","react-dom":"^18.3.0","recharts":"^2.12.0","papaparse":"^5.4.0"}}
+{"name":"carlton-aflw-recon","version":"6.0.0","private":true,"scripts":{"dev":"next dev","build":"next build","start":"next start"},"dependencies":{"next":"^14.2.0","react":"^18.3.0","react-dom":"^18.3.0","recharts":"^2.12.0","papaparse":"^5.4.0"}}
