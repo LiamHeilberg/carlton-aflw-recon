@@ -21,7 +21,7 @@ const DEFAULT_QUADRANTS=[
 
 const SKIP_COLS = new Set(["Name","ExternalId","Test Type","Date","Time","BW [KG]","Reps","Reps (L)","Reps (R)","Tags","Additional Load [kg]"]);
 const KNOWN_TYPES = new Set(["CMJ","SLCMJ","DLCMJ","DLHOP","SLHOP","DLDJ","SLDJ","RSKIP","RSAKP","RSHIP","SLSEICR","IMTP","DJ","SJ","SLSJ","SQUAT"]);
-const TYPE_LABELS={CMJ:"CMJ",SLCMJ:"SL CMJ",DLCMJ:"DL CMJ",DLHOP:"DL Hop",SLHOP:"SL Hop",DLDJ:"DL Drop Jump",SLDJ:"SL Drop Jump",RSKIP:"Knee ISO Push",RSAKP:"Ankle ISO Push",RSHIP:"Hip ISO Push",SLSEICR:"Calf ISO",IMTP:"IMTP",DJ:"Drop Jump",SJ:"Squat Jump"};
+const TYPE_LABELS={CMJ:"CMJ",SLCMJ:"SL CMJ",DLCMJ:"DL CMJ",DLHOP:"DL Hop",SLHOP:"SL Hop",DLDJ:"DL Drop Jump",SLDJ:"SL Drop Jump",RSKIP:"Knee ISO Push",RSAKP:"Ankle ISO Push",RSAIP:"Ankle ISO Push",RSHIP:"Hip ISO Push",SLSEICR:"Calf ISO",IMTP:"IMTP",DJ:"Drop Jump",DLDJ:"DL Drop Jump",SJ:"Squat Jump"};
 
 function parseFDDate(r){
   if(!r)return"";
@@ -108,7 +108,7 @@ function parseMultipleCSVs(fileTexts){
     // Group rows by athlete+date
     const grouped={};
     for(const row of result.data){
-      const name=(row["Name"]||"").trim();
+      const name=(row["Name"]||"").trim().replace(/\s+/g," ");
       const date=parseFDDate((row["Date"]||"").trim());
       if(!name||!date)continue;
       const key=`${name}|||${date}`;
